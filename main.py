@@ -1,12 +1,10 @@
 import pygame
 from constants import *
-from player import *
+from player import Player
 
 def main():
     pygame.init
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    screen.fill((0, 0, 0))
-    pygame.display.flip()
     clock = pygame.time.Clock()
     dt = 0
     running = True
@@ -17,6 +15,8 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
+        player.update(dt)
 
         # Clear screen
         screen.fill((0, 0, 0))
